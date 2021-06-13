@@ -2,14 +2,19 @@ package chessgame.src.pojo;
 
 import java.util.ArrayList; 
 
+// Plain old java object for each player
 public class Player{ 
     private String name; 
     private int id; 
+
+    // gamesPlayed will keep track of all the games played by the player 
     private ArrayList<Game> gamesPlayed = new ArrayList<>(); 
     public Player(String name, int id){
         this.name = name; 
         this.id = id; 
     } 
+
+    // getters for all the class members 
     public String getName(){ 
         return name; 
     } 
@@ -19,6 +24,8 @@ public class Player{
     public void addGame(Game game){ 
         gamesPlayed.add(game); 
     } 
+
+    // this method will display all the data of the particular player for each game they have played
     public void displayGamesData(){ 
         for(int i=0; i<gamesPlayed.size(); i++){ 
             Game game = gamesPlayed.get(i); 

@@ -3,10 +3,11 @@ import chessgame.src.pojo.*;
 
 import java.util.ArrayList; 
 import java.util.Scanner; 
-
 public class WorldCup{ 
     private Player[] players; 
     private int playerCount; 
+
+    // takes number of players as input along with their names 
     public WorldCup(int playerCount){ 
         this.playerCount = playerCount; 
         players = new Player[playerCount]; 
@@ -18,9 +19,13 @@ public class WorldCup{
             sc.close();
         } 
     } 
+
+    // get the list of players 
     public Player[] getPlayers(){ 
         return players; 
     } 
+
+    // this method simulates the game in a binary tree type system 
     public void play(){ 
         if(playerCount <= 1){ 
             System.out.println("Please add atleast 2 players"); 
@@ -28,6 +33,8 @@ public class WorldCup{
         } 
         ArrayList<Integer> remainingPlayers = new ArrayList<>(); 
         ArrayList<Integer> semifinalists = new ArrayList<>(); 
+
+
         for(int i=0; i<playerCount; i++){ 
             remainingPlayers.add(i); 
         } 
@@ -49,6 +56,8 @@ public class WorldCup{
             } 
             String gameRes = "Game : " + gameName + "\n"; 
             ArrayList<Player> loosers = new ArrayList<>(); 
+
+            // simulating breadth first search here 
             for(int i=0; i<gamesCount; i++){ 
                 Player player1 = players[remainingPlayers.get(i*2)]; 
                 Player player2 = null; 
@@ -65,6 +74,8 @@ public class WorldCup{
                 if(res.get(1)!=null){ 
                     loosers.add(res.get(1)); 
                 } 
+
+                // add the players details result in each level of tree 
                 gameRes += player1.getName() + (player2!=null ? " vs " + player2.getName() : "") + " :: winner -> " + res.get(0).getName() + (i!=gamesCount-1 ? " || " : ""); 
             } 
             for(int i=0; i<loosers.size(); i++){ 
@@ -72,6 +83,8 @@ public class WorldCup{
             } 
             System.out.println(gameRes+"\n"); round++; 
         } 
+
+        // this will finally print the root/final winner of the chess world cup 
         Player champion = players[remainingPlayers.get(0)]; 
         System.out.println("\n\nChampion (" + champion.getName() + ") game data:\n"); 
         champion.displayGamesData(); 
