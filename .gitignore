@@ -1,0 +1,9 @@
+*.txt
+heaps/sortksortedarray
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json
+codingInterviewsPractice/arrays/duplicationInArray
+codingInterviewsPractice/arrays/multipleDuplicatesInArray
+linkedlist/alex
+temp
