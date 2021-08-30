@@ -15,13 +15,14 @@ ll mul(ll x, ll y) {ll res = x * y; return (res >= MOD ? res % MOD : res);}
 ll power(ll x, ll y) {ll res = 1; x %= MOD; while (y) {if (y & 1)res = mul(res, x); y >>= 1; x = mul(x, x);} return res;}
 void swap(ll &x, ll &y){ll temp = x; x = y; y = temp;}
 
-void solve(){
-    
+void solve(int t){
+    int res = 0;
+    cout << "Case #" << t << ": " << res << "\n";
 }
  
 void testcases(){
     tc(){
-        solve();
+        solve(t);
     }
 }
  
