@@ -1,0 +1,10 @@
+Thread in java is created and controlled by java.lang.Thread class. When a standalone application is run, a thread is
+automatically created to execute the main() method. This thread is called the main thread.
+
+We can implement threads in one of the two ways:
+1. By implementing the class java.lang.Runnable interface
+2. By extending the class java.lang,Thread class
+
+Difference between Runnable and Thread:
+1. java doesn't support multiple inheritance, hence the subclass after extending the thread class will not be able to extend another class
+2. a class might only want to be ruunnable instead of inheriting full overhead of the thread class
